@@ -2,11 +2,11 @@ curl -O https://raw.githubusercontent.com/Impulss/beats/master/filebeat.yml
 curl -O https://raw.githubusercontent.com/Impulss/beats/master/packetbeat.yml 
 curl -O https://raw.githubusercontent.com/Impulss/beats/master/topbeat.yml
 
-sudo mkdir -p /etc/pki/tls/certs
+mkdir -p /etc/pki/tls/certs
 
-sudo cp /tmp/logstash-forwarder.crt /etc/pki/tls/certs/
+cp /tmp/logstash-forwarder.crt /etc/pki/tls/certs/
 
-sudo rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch
+rpm --import http://packages.elastic.co/GPG-KEY-elasticsearch
 
 cat >/etc/yum.repos.d/elastic-beats.repo <<EOL
 [beats]
@@ -15,9 +15,9 @@ baseurl=https://packages.elastic.co/beats/yum/el/\$basearch
 enabled=1
 gpgkey=https://packages.elastic.co/GPG-KEY-elasticsearch
 gpgcheck=1
-EOL 
+EOL
 
-sudo yum -y install filebeat packetbeat topbeat
+yum -y install filebeat packetbeat topbeat
 
 mv filebeat.yml /etc/filebeat/filebeat.yml
 mv packetbeat.yml /etc/packetbeat/packetbeat.yml
