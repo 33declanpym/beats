@@ -26,3 +26,11 @@ mv topbeat.yml /etc/topbeat/topbeat.yml
 service filebeat start
 service packetbeat start
 service topbeat start
+
+chkconfig --add filebeat
+chkconfig --add packetbeat
+chkconfig --add topbeat
+chkconfig filebeat on
+chkconfig packetbeat on
+chkconfig topbeat on
+
